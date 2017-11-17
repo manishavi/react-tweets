@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+const React = require('react');
 
 module.exports = Loader = React.createClass({
   render: function(){

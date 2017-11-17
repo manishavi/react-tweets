@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
-var React = require('react');
-var Tweets = require('./Tweets.react.js');
-var Loader = require('./Loader.react.js');
-var NotificationBar = require('./NotificationBar.react.js');
+const React = require('react');
+const Tweets = require('./Tweets.react.js');
+const Loader = require('./Loader.react.js');
+const NotificationBar = require('./NotificationBar.react.js');
 
 // Export the TweetsApp component
 module.exports = TweetsApp = React.createClass({
@@ -12,13 +12,13 @@ module.exports = TweetsApp = React.createClass({
   addTweet: function(tweet){
 
     // Get current application state
-    var updated = this.state.tweets;
+    const updated = this.state.tweets;
 
     // Increment the unread count
-    var count = this.state.count + 1;
+    const count = this.state.count + 1;
 
     // Increment the skip count
-    var skip = this.state.skip + 1;
+    const skip = this.state.skip + 1;
 
     // Add tweet to the beginning of the tweets array
     updated.unshift(tweet);
@@ -32,7 +32,7 @@ module.exports = TweetsApp = React.createClass({
   getPage: function(page){
 
     // Setup our ajax request
-    var request = new XMLHttpRequest(), self = this;
+    const request = new XMLHttpRequest(), self = this;
     request.open('GET', 'page/' + page + "/" + this.state.skip, true);
     request.onload = function() {
 
@@ -59,7 +59,7 @@ module.exports = TweetsApp = React.createClass({
   showNewTweets: function(){
 
     // Get current application state
-    var updated = this.state.tweets;
+    const updated = this.state.tweets;
 
     // Mark our tweets active
     updated.forEach(function(tweet){
@@ -75,13 +75,13 @@ module.exports = TweetsApp = React.createClass({
   loadPagedTweets: function(tweets){
 
     // So meta lol
-    var self = this;
+    const self = this;
 
     // If we still have tweets...
     if(tweets.length > 0) {
 
       // Get current application state
-      var updated = this.state.tweets;
+      const updated = this.state.tweets;
 
       // Push them onto the end of the current tweets array
       tweets.forEach(function(tweet){
@@ -109,9 +109,9 @@ module.exports = TweetsApp = React.createClass({
   checkWindowScroll: function(){
 
     // Get scroll pos & window data
-    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    var s = (document.body.scrollTop || document.documentElement.scrollTop || 0);
-    var scrolled = (h + s) > document.body.offsetHeight;
+    const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    const s = (document.body.scrollTop || document.documentElement.scrollTop || 0);
+    const scrolled = (h + s) > document.body.offsetHeight;
 
     // If scrolled enough, not currently paging and not complete...
     if(scrolled && !this.state.paging && !this.state.done) {
@@ -150,10 +150,10 @@ module.exports = TweetsApp = React.createClass({
   componentDidMount: function(){
 
     // Preserve self reference
-    var self = this;
+    const self = this;
 
     // Initialize socket.io
-    var socket = io.connect();
+    const socket = io.connect();
 
     // On tweet event emission...
     socket.on('tweet', function (data) {

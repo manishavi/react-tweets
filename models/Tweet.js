@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Create a new schema for our tweet data
-var schema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     twid       : String
   , active     : Boolean
   , author     : String
@@ -14,7 +14,7 @@ var schema = new mongoose.Schema({
 // Create a static getTweets method to return tweet data from the db
 schema.statics.getTweets = function(page, skip, callback) {
 
-  var tweets = [],
+  const tweets = [],
       start = (page * 10) + (skip * 1);
 
   // Query the db, using skip and limit to achieve page chunks
