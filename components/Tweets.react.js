@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
-const React = require('react');
-const Tweet = require('./Tweet.react.js');
+var React = require('react');
+var Tweet = require('./Tweet.react.js');
 
 module.exports = Tweets = React.createClass({
 
@@ -9,7 +9,7 @@ module.exports = Tweets = React.createClass({
   render: function(){
 
     // Build list items of single tweet components using map
-    const content = this.props.tweets.map(function(tweet){
+    var content = this.props.tweets.map(function(tweet){
       return (
         <Tweet key={tweet._id} tweet={tweet} />
       )

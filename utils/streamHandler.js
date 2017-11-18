@@ -1,4 +1,4 @@
-const Tweet = require('../models/Tweet');
+var Tweet = require('../models/Tweet');
 
 module.exports = function(stream, io){
 
@@ -8,7 +8,7 @@ module.exports = function(stream, io){
     if (data['user'] !== undefined) {
 
       // Construct a new tweet object
-      const tweet = {
+      var tweet = {
         twid: data['id_str'],
         active: false,
         author: data['user']['name'],
@@ -19,7 +19,7 @@ module.exports = function(stream, io){
       };
 
       // Create a new model instance with our object
-      const tweetEntry = new Tweet(tweet);
+      var tweetEntry = new Tweet(tweet);
 
       // Save 'er to the database
       tweetEntry.save(function(err) {

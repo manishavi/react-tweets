@@ -1,10 +1,10 @@
 /** @jsx React.DOM */
 
-const React = require('react');
+var React = require('react');
 
 module.exports = Tweet = React.createClass({
   render: function(){
-    const tweet = this.props.tweet;
+    var tweet = this.props.tweet;
     return (
       <li className={"tweet" + (tweet.active ? ' active' : '')}>
         <img src={tweet.avatar} className="avatar"/>

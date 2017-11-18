@@ -1,4 +1,4 @@
-const JSX = require('node-jsx').install(),
+var JSX = require('node-jsx').install(),
   React = require('react'),
   TweetsApp = React.createFactory(require('./components/TweetsApp.react')),
   Tweet = require('./models/Tweet');
@@ -10,7 +10,7 @@ module.exports = {
     Tweet.getTweets(0,0, function(tweets, pages) {
 
       // Render React to a string, passing in our fetched tweets
-      const markup = React.renderToString(
+      var markup = React.renderToString(
         TweetsApp({
           tweets: tweets
         })
